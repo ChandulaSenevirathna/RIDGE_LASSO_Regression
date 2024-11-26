@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Prediction</h1>
+        <!-- Main Input Form for Receiving Query to our ML Model -->
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <div class="form-group">
+                <label for="Temperature">Temperature</label>
+                <input type="text" class="form-control" name="Temperature" id="Temperature" placeholder="Enter Temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="RH">Relative Humidity (RH)</label>
+                <input type="text" class="form-control" name="RH" id="RH" placeholder="Enter Relative Humidity" required>
+            </div>
+            <div class="form-group">
+                <label for="Ws">Wind Speed (Ws)</label>
+                <input type="text" class="form-control" name="Ws" id="Ws" placeholder="Enter Wind Speed" required>
+            </div>
+            <div class="form-group">
+                <label for="Rain">Rain</label>
+                <input type="text" class="form-control" name="Rain" id="Rain" placeholder="Enter Rainfall" required>
+            </div>
+            <div class="form-group">
+                <label for="FFMC">FFMC</label>
+                <input type="text" class="form-control" name="FFMC" id="FFMC" placeholder="Enter FFMC" required>
+            </div>
+            <div class="form-group">
+                <label for="ISI">DMC</label>
+                <input type="text" class="form-control" name="DMC" id="DMC" placeholder="Enter DMC" required>
+            </div>
+            <div class="form-group">
+                <label for="ISI">ISI</label>
+                <input type="text" class="form-control" name="ISI" id="ISI" placeholder="Enter ISI" required>
+            </div>
+            <div class="form-group">
+                <label for="Classes">Classes</label>
+                <input type="text" class="form-control" name="Classes" id="Classes" placeholder="Enter Classes" required>
+            </div>
+            <div class="form-group">
+                <label for="Region">Region</label>
+                <input type="text" class="form-control" name="Region" id="Region" placeholder="Enter Region" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        <h2>
+            The FWI prediction is {{result}}
+        </h2>
+    </div>
+</body>
+</html>
